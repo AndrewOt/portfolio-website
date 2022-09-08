@@ -3,9 +3,10 @@
   "sideEffects": false,
   "scripts": {
     "dev": "remix dev",
-    "test": "jest --watch",
+    "test": "jest",
     "build": "remix build",
-    "start": "remix-serve build"
+    "start": "remix-serve build",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@remix-run/node": "^1.7.0",
