@@ -9,12 +9,14 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { useMobile } from "@/hooks/use-mobile"
 import { useTheme } from "next-themes"
+import { useRouter } from "next/navigation"
 
 export default function Portfolio() {
-  const isMobile = useMobile()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { theme, setTheme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const isMobile = useMobile();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => { setMounted(true) }, [])
 
@@ -76,12 +78,9 @@ export default function Portfolio() {
               <Link href="#projects" className="text-sm font-medium hover:text-primary">
                 Projects
               </Link>
-              {/* <Link href="#contact" className="text-sm font-medium hover:text-primary">
-                Contact
-              </Link> */}
               <Button
-                variant="ghost"
                 size="icon"
+                variant="ghost"
                 aria-label="Toggle theme"
                 onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
                 disabled={!mounted}
@@ -147,17 +146,17 @@ export default function Portfolio() {
             <div className="grid gap-8 md:grid-cols-2 md:gap-12">
               <div className="space-y-4">
                 <p>
-                  I'm a passionate Software Engineer and I'm focused on building solutions for the customer, not matter the tech.
-                  I am energized by building performant, quality solutions that clients enjoy.
+                  I'm a passionate Software Engineer and and am focused on building solutions for the customer, not matter the tech.
+                  I am energized by building performant, quality solutions that users enjoy.
                 </p>
                 <p>
                   I love technology and I'm always looking for ways to grow and learn. Currently, I have over 7 years developing quality
-                  web applications with React, .Net, and SQL. I have also pushed myself to learn technologies that are new to me such
-                  Gremlin (in CosmosDb graph databases), the Rust and C programming languages, as well as common development tools.
+                  web applications with React, .Net, and SQL. I have also pushed myself to learn technologies that are new to me lke
+                  CosmosDb graph databases and Gremlin, the Rust and C programming languages, and AI assistant tools.
                 </p>
                 <p>
-                  When I'm not coding, you can find me hiking, reading sci-fi novels, or experimenting with new
-                  technologies.
+                  I enjoy coding for fun and as my day job.When I'm not coding, you can find me spending time with friends and family,
+                  outdoors, behind a camera, reading, or playing video games.
                 </p>
               </div>
               <div className="space-y-4">
@@ -222,40 +221,18 @@ export default function Portfolio() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  title: "E-commerce Platform",
-                  description: "A full-featured online store with cart, checkout, and payment integration.",
-                  tags: ["Next.js", "Stripe", "Tailwind"],
-                  image: "/placeholder.svg?height=400&width=600&text=E-commerce",
+                  title: "a-first-date",
+                  description: "A library to manage dates in Rust. I developed it to learn about how computers store and manipulate dates as well as Rust.",
+                  tags: ["Rust"],
+                  image: "/a-first-date.png",
+                  url: "https://github.com/AndrewOt/a-first-date"
                 },
                 {
-                  title: "Task Management App",
-                  description: "Collaborative task manager with real-time updates and team features.",
-                  tags: ["React", "Firebase", "Material UI"],
-                  image: "/placeholder.svg?height=400&width=600&text=Task+App",
-                },
-                {
-                  title: "Portfolio Website",
-                  description: "Custom portfolio site for a digital artist with gallery features.",
-                  tags: ["Next.js", "Framer Motion", "Sanity CMS"],
-                  image: "/placeholder.svg?height=400&width=600&text=Portfolio",
-                },
-                {
-                  title: "Fitness Tracker",
-                  description: "Mobile-first application for tracking workouts and nutrition goals.",
-                  tags: ["React Native", "GraphQL", "MongoDB"],
-                  image: "/placeholder.svg?height=400&width=600&text=Fitness+App",
-                },
-                {
-                  title: "Weather Dashboard",
-                  description: "Real-time weather information with location-based forecasts.",
-                  tags: ["JavaScript", "Weather API", "Chart.js"],
-                  image: "/placeholder.svg?height=400&width=600&text=Weather+App",
-                },
-                {
-                  title: "Recipe Finder",
-                  description: "Search and save recipes with filtering by ingredients and dietary needs.",
-                  tags: ["React", "Node.js", "MongoDB"],
-                  image: "/placeholder.svg?height=400&width=600&text=Recipe+App",
+                  title: "apt-wrapper",
+                  description: "Simple wrapper around the `apt` debian package manager.",
+                  tags: ["Rust", "Linux"],
+                  image: "/apt-wrapper.png",
+                  url: "https://github.com/AndrewOt/apt-wrapper"
                 },
               ].map((project, index) => (
                 <Card key={index} className="overflow-hidden">
@@ -280,77 +257,18 @@ export default function Portfolio() {
                         </span>
                       ))}
                     </div>
-                    <Button variant="outline" size="sm" className="w-full group">
+                    {project.url ?
+                    <Button variant="outline" size="sm" className="w-full group" onClick={() => router.push(project.url)}>
                       View Project
                       <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Button>
+                    : null}
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
         </section>
-
-        {/* <div className="container px-4 mx-auto">
-          <section id="contact" className="py-24 scroll-mt-16">
-            <div className="mx-auto max-w-2xl text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight mb-4">Get In Touch</h2>
-              <p className="text-muted-foreground">
-                Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.
-              </p>
-            </div>
-            <div className="mx-auto max-w-md">
-              <form className="space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Name
-                    </label>
-                    <input
-                      id="name"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Your email"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">
-                    Subject
-                  </label>
-                  <input
-                    id="subject"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Project inquiry"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Tell me about your project..."
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
-            </div>
-          </section>
-        </div> */}
       </main>
 
       <footer className="border-t py-6 w-full">

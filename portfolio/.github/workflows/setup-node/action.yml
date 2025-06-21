@@ -1,0 +1,23 @@
+name: setup-bun
+description: "Setup Bun ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧"
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Bun ⚙️
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Cache dependencies ⚡
+      id: cache_dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.bun/install/cache
+          node_modules
+        key: bun-${{ hashFiles('bun.lockb') }}
+
+    - name: Install dependencies 🔧
+      shell: bash
+      if: steps.cache_dependencies.outputs.cache-hit != 'true'
+      run: bun install 
