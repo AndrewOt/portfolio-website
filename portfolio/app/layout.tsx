@@ -9,7 +9,11 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Andrew Ottaviano | Full Stack Developer",
   description: "Professional portfolio of Andrew Ottaviano, a Full Stack Developer specializing in modern web technologies.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/cross-3203.png',
+    shortcut: '/cross-3203.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

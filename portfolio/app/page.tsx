@@ -100,7 +100,7 @@ export default function Portfolio() {
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Hi, I'm Andrew Ottaviano</h1>
                 <p className="text-xl text-muted-foreground">
-                  Full Stack Developer specializing in creating beautiful, functional web experiences.
+                  Software Engineer with over 7 years of experience developing quality software with React and .Net. I am passionate about building performant, scalable applications that meet user needs and provide a pleasant experience.
                 </p>
                 <div className="flex gap-4">
                   <Button asChild>
@@ -147,12 +147,13 @@ export default function Portfolio() {
             <div className="grid gap-8 md:grid-cols-2 md:gap-12">
               <div className="space-y-4">
                 <p>
-                  I'm a passionate Full Stack Developer with 7+ years of experience building modern web applications. I
-                  specialize in React, Next.js, Node.js, and creating responsive, user-friendly interfaces.
+                  I'm a passionate Software Engineer and I'm focused on building solutions for the customer, not matter the tech.
+                  I am energized by building performant, quality solutions that clients enjoy.
                 </p>
                 <p>
-                  My approach combines technical expertise with a strong focus on user experience. I believe in clean
-                  code, thoughtful architecture, and continuous learning.
+                  I love technology and I'm always looking for ways to grow and learn. Currently, I have over 7 years developing quality
+                  web applications with React, .Net, and SQL. I have also pushed myself to learn technologies that are new to me such
+                  Gremlin (in CosmosDb graph databases), the Rust and C programming languages, as well as common development tools.
                 </p>
                 <p>
                   When I'm not coding, you can find me hiking, reading sci-fi novels, or experimenting with new
