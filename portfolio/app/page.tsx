@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUpRight, Github, Linkedin, Mail, Menu, X } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin, Mail, Menu, X, Sun, Moon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -8,10 +8,12 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { useMobile } from "@/hooks/use-mobile"
+import { useTheme } from "next-themes"
 
 export default function Portfolio() {
   const isMobile = useMobile()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { theme, setTheme, resolvedTheme } = useTheme()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
@@ -26,12 +28,22 @@ export default function Portfolio() {
 
           {isMobile ? (
             <>
-              <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle menu">
-                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle menu">
+                  {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Toggle theme"
+                  onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                >
+                  {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                </Button>
+              </div>
 
               {isMenuOpen && (
-                <div className="fixed inset-0 top-16 z-50 bg-background p-4">
+                <div className="fixed left-0 right-0 top-16 bottom-0 w-full h-[calc(100vh-4rem)] z-50 bg-background/99 backdrop-blur supports-[backdrop-filter]:bg-background/80 p-4 flex flex-col">
                   <nav className="flex flex-col space-y-4">
                     <Link href="#about" onClick={closeMenu} className="text-lg font-medium py-2 hover:text-primary">
                       About
@@ -63,6 +75,14 @@ export default function Portfolio() {
               <Link href="#contact" className="text-sm font-medium hover:text-primary">
                 Contact
               </Link>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Toggle theme"
+                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              >
+                {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </Button>
             </nav>
           )}
         </div>
@@ -70,7 +90,7 @@ export default function Portfolio() {
 
       <main className="flex-1 w-full">
         <div className="container px-4 mx-auto">
-          <section id="top" className="py-24 md:py-32">
+          <section id="top" className="py-24 md:py-32 scroll-mt-16">
             <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Hi, I'm Andrew Ottaviano</h1>
@@ -116,7 +136,7 @@ export default function Portfolio() {
           </section>
         </div>
 
-        <section id="about" className="bg-muted/50 w-full py-24">
+        <section id="about" className="bg-muted/50 w-full py-24 scroll-mt-16">
           <div className="max-w-screen-lg mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tight mb-8">About Me</h2>
             <div className="grid gap-8 md:grid-cols-2 md:gap-12">
@@ -159,7 +179,7 @@ export default function Portfolio() {
         </section>
 
         <div className="container px-4 mx-auto">
-          <section id="skills" className="py-24">
+          <section id="skills" className="py-24 scroll-mt-16">
             <h2 className="text-3xl font-bold tracking-tight mb-8">Skills</h2>
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {[
@@ -190,7 +210,7 @@ export default function Portfolio() {
           </section>
         </div>
 
-        <section id="projects" className="bg-muted/50 w-full py-24">
+        <section id="projects" className="bg-muted/50 w-full py-24 scroll-mt-16">
           <div className="max-w-screen-lg mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tight mb-8">Projects</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -266,7 +286,7 @@ export default function Portfolio() {
         </section>
 
         <div className="container px-4 mx-auto">
-          <section id="contact" className="py-24">
+          <section id="contact" className="py-24 scroll-mt-16">
             <div className="mx-auto max-w-2xl text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Get In Touch</h2>
               <p className="text-muted-foreground">
