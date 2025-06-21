@@ -3,7 +3,7 @@
 import { ArrowUpRight, Github, Linkedin, Mail, Menu, X, Sun, Moon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -14,6 +14,9 @@ export default function Portfolio() {
   const isMobile = useMobile()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
@@ -37,8 +40,9 @@ export default function Portfolio() {
                   size="icon"
                   aria-label="Toggle theme"
                   onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                  disabled={!mounted}
                 >
-                  {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                  {mounted && (resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
                 </Button>
               </div>
 
@@ -54,9 +58,9 @@ export default function Portfolio() {
                     <Link href="#projects" onClick={closeMenu} className="text-lg font-medium py-2 hover:text-primary">
                       Projects
                     </Link>
-                    <Link href="#contact" onClick={closeMenu} className="text-lg font-medium py-2 hover:text-primary">
+                    {/* <Link href="#contact" onClick={closeMenu} className="text-lg font-medium py-2 hover:text-primary">
                       Contact
-                    </Link>
+                    </Link> */}
                   </nav>
                 </div>
               )}
@@ -72,16 +76,17 @@ export default function Portfolio() {
               <Link href="#projects" className="text-sm font-medium hover:text-primary">
                 Projects
               </Link>
-              <Link href="#contact" className="text-sm font-medium hover:text-primary">
+              {/* <Link href="#contact" className="text-sm font-medium hover:text-primary">
                 Contact
-              </Link>
+              </Link> */}
               <Button
                 variant="ghost"
                 size="icon"
                 aria-label="Toggle theme"
                 onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                disabled={!mounted}
               >
-                {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                {mounted && (resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
               </Button>
             </nav>
           )}
@@ -285,7 +290,7 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <div className="container px-4 mx-auto">
+        {/* <div className="container px-4 mx-auto">
           <section id="contact" className="py-24 scroll-mt-16">
             <div className="mx-auto max-w-2xl text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Get In Touch</h2>
@@ -344,7 +349,7 @@ export default function Portfolio() {
               </form>
             </div>
           </section>
-        </div>
+        </div> */}
       </main>
 
       <footer className="border-t py-6 w-full">
