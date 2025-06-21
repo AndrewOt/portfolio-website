@@ -19,9 +19,9 @@ export default function Portfolio() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container px-4 flex h-16 items-center justify-between mx-auto">
           <Link href="#top" className="font-bold text-xl">
-            Jane Smith
+            Andrew Ottaviano
           </Link>
 
           {isMobile ? (
@@ -68,59 +68,61 @@ export default function Portfolio() {
         </div>
       </header>
 
-      <main className="flex-1">
-        <section id="top" className="container py-24 md:py-32">
-          <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Hi, I'm Jane Smith</h1>
-              <p className="text-xl text-muted-foreground">
-                Full Stack Developer specializing in creating beautiful, functional web experiences.
-              </p>
-              <div className="flex gap-4">
-                <Button asChild>
-                  <Link href="#contact">Get in touch</Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link href="#projects">View my work</Link>
-                </Button>
+      <main className="flex-1 w-full">
+        <div className="container px-4 mx-auto">
+          <section id="top" className="py-24 md:py-32">
+            <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
+              <div className="space-y-4">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Hi, I'm Andrew Ottaviano</h1>
+                <p className="text-xl text-muted-foreground">
+                  Full Stack Developer specializing in creating beautiful, functional web experiences.
+                </p>
+                <div className="flex gap-4">
+                  <Button asChild>
+                    <Link href="#contact">Get in touch</Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="#projects">View my work</Link>
+                  </Button>
+                </div>
+                <div className="flex gap-4 pt-4">
+                  <Link href="https://github.com/AndrewOt" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" aria-label="GitHub">
+                      <Github className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link href="https://linkedin.com/in/andrewottaviano" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" aria-label="LinkedIn">
+                      <Linkedin className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link href="mailto:andrew.ottaviano@protonmail.com">
+                    <Button variant="ghost" size="icon" aria-label="Email">
+                      <Mail className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
-              <div className="flex gap-4 pt-4">
-                <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="icon" aria-label="GitHub">
-                    <Github className="h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="icon" aria-label="LinkedIn">
-                    <Linkedin className="h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="mailto:hello@janesmith.com">
-                  <Button variant="ghost" size="icon" aria-label="Email">
-                    <Mail className="h-5 w-5" />
-                  </Button>
-                </Link>
+              <div className="relative aspect-square overflow-hidden rounded-full md:order-last">
+                <Image
+                  src="/Andrew-headshot.jpg"
+                  alt="Andrew Ottaviano headshot"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-full md:order-last">
-              <Image
-                src="/placeholder.svg?height=600&width=600"
-                alt="Jane Smith"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
-        <section id="about" className="bg-muted/50 py-24">
-          <div className="container">
+        <section id="about" className="bg-muted/50 w-full py-24">
+          <div className="max-w-screen-lg mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tight mb-8">About Me</h2>
             <div className="grid gap-8 md:grid-cols-2 md:gap-12">
               <div className="space-y-4">
                 <p>
-                  I'm a passionate Full Stack Developer with 5+ years of experience building modern web applications. I
+                  I'm a passionate Full Stack Developer with 7+ years of experience building modern web applications. I
                   specialize in React, Next.js, Node.js, and creating responsive, user-friendly interfaces.
                 </p>
                 <p>
@@ -136,19 +138,19 @@ export default function Portfolio() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <h3 className="font-medium">Location</h3>
-                    <p className="text-muted-foreground">San Francisco, CA</p>
+                    <p className="text-muted-foreground">Lenexa, KS</p>
                   </div>
                   <div>
                     <h3 className="font-medium">Experience</h3>
-                    <p className="text-muted-foreground">5+ Years</p>
+                    <p className="text-muted-foreground">7+ Years</p>
                   </div>
                   <div>
                     <h3 className="font-medium">Education</h3>
-                    <p className="text-muted-foreground">B.S. Computer Science</p>
+                    <p className="text-muted-foreground">B.S. Computer Science and Mathematics</p>
                   </div>
                   <div>
                     <h3 className="font-medium">Languages</h3>
-                    <p className="text-muted-foreground">English, Spanish</p>
+                    <p className="text-muted-foreground">English</p>
                   </div>
                 </div>
               </div>
@@ -156,42 +158,40 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section id="skills" className="py-24">
-          <div className="container">
+        <div className="container px-4 mx-auto">
+          <section id="skills" className="py-24">
             <h2 className="text-3xl font-bold tracking-tight mb-8">Skills</h2>
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {[
-                { name: "JavaScript", level: 90 },
-                { name: "React", level: 85 },
-                { name: "Next.js", level: 80 },
-                { name: "TypeScript", level: 75 },
-                { name: "Node.js", level: 80 },
-                { name: "HTML/CSS", level: 90 },
-                { name: "Tailwind CSS", level: 85 },
-                { name: "UI/UX Design", level: 70 },
-                { name: "Git", level: 85 },
-                { name: "REST APIs", level: 80 },
-                { name: "GraphQL", level: 70 },
-                { name: "PostgreSQL", level: 75 },
+                { name: ".NET 8" },
+                { name: "C#" },
+                { name: "JavaScript" },
+                { name: "React" },
+                { name: "Next.js" },
+                { name: "TypeScript" },
+                { name: "Node.js" },
+                { name: "HTML/CSS" },
+                { name: "Tailwind CSS" },
+                { name: "npm" },
+                { name: "Git" },
+                { name: "REST APIs" },
+                { name: "SQL" },
+                { name: "CI/CD Yaml pipelines" },
               ].map((skill) => (
                 <Card key={skill.name} className="overflow-hidden">
                   <CardContent className="p-6">
                     <div className="flex justify-between items-center mb-2">
                       <h3 className="font-medium">{skill.name}</h3>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full bg-primary" style={{ width: `${skill.level}%` }} />
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
-        <section id="projects" className="bg-muted/50 py-24">
-          <div className="container">
+        <section id="projects" className="bg-muted/50 w-full py-24">
+          <div className="max-w-screen-lg mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tight mb-8">Projects</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
@@ -265,8 +265,8 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section id="contact" className="py-24">
-          <div className="container">
+        <div className="container px-4 mx-auto">
+          <section id="contact" className="py-24">
             <div className="mx-auto max-w-2xl text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Get In Touch</h2>
               <p className="text-muted-foreground">
@@ -323,27 +323,27 @@ export default function Portfolio() {
                 </Button>
               </form>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
 
-      <footer className="border-t py-6">
-        <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
+      <footer className="border-t py-6 w-full">
+        <div className="container px-4 flex flex-col items-center justify-between gap-4 md:flex-row mx-auto">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Jane Smith. All rights reserved.
+            © {new Date().getFullYear()} Andrew Ottaviano. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/AndrewOt" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon" aria-label="GitHub">
                 <Github className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://linkedin.com/in/andrewottaviano" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="mailto:hello@janesmith.com">
+            <Link href="mailto:andrew.ottaviano@protonmail.com">
               <Button variant="ghost" size="icon" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </Button>
