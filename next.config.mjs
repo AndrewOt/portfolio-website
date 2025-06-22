@@ -12,9 +12,7 @@ const nextConfig = {
   output: "export",
 }
 
-if (process.env.NODE_ENV === 'development') {
-  nextConfig.basePath = "";
-} else {
+if (process.env.GITHUB_PAGES === 'true') {
   nextConfig.basePath = "/portfolio-website";
 }
 
