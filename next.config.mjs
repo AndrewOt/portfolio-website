@@ -12,8 +12,8 @@ const nextConfig = {
   output: "export",
 }
 
-// if (process.env.GITHUB_PAGES === 'true') {
-//   nextConfig.basePath = "/portfolio-website";
-// }
+if (process.env.GITHUB_PAGES === 'true') {
+  nextConfig.basePath = "/portfolio-website";
+}
 
 export default nextConfig
