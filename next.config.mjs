@@ -17,7 +17,6 @@ const isGithubPages = process.env.GITHUB_PAGES === 'true' || process.env.NODE_EN
 
 if (isGithubPages) {
   nextConfig.basePath = "/portfolio-website";
-  nextConfig.assetPrefix = "/portfolio-website/";
 }
 
 export default nextConfig

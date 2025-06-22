@@ -11,10 +11,8 @@ import { useMobile } from "@/hooks/use-mobile"
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
 
-// Helper function to get the correct image path
 const getImagePath = (path: string) => {
-  // Check if we're in production (GitHub Pages)
-  if (typeof window !== 'undefined' && window.location.hostname.includes('github.io')) {
+  if (window.location.hostname.includes('github.io')) {
     return `/portfolio-website${path}`;
   }
   return path;
