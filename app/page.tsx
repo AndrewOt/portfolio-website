@@ -12,7 +12,7 @@ import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
 
 const getImagePath = (path: string) => {
-  if (window.location.hostname.includes('github.io')) {
+  if (process.env.GITHUB_PAGES === 'true') {
     return `/portfolio-website${path}`;
   }
   return path;
