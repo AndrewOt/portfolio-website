@@ -11,6 +11,15 @@ import { useMobile } from "@/hooks/use-mobile"
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
 
+// Helper function to get the correct image path
+const getImagePath = (path: string) => {
+  // Check if we're in production (GitHub Pages)
+  if (typeof window !== 'undefined' && window.location.hostname.includes('github.io')) {
+    return `/portfolio-website${path}`;
+  }
+  return path;
+};
+
 export default function Portfolio() {
   const isMobile = useMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -129,7 +138,7 @@ export default function Portfolio() {
               </div>
               <div className="relative aspect-square overflow-hidden rounded-full md:order-last">
                 <Image
-                  src="/Andrew-headshot.jpg"
+                  src={getImagePath("/Andrew-headshot.jpg")}
                   alt="Andrew Ottaviano headshot"
                   fill
                   className="object-cover"
@@ -238,7 +247,7 @@ export default function Portfolio() {
                 <Card key={index} className="overflow-hidden">
                   <div className="aspect-video relative">
                     <Image
-                      src={project.image || "/placeholder.svg"}
+                      src={getImagePath(project.image || "/placeholder.svg")}
                       alt={project.title}
                       fill
                       className="object-cover"

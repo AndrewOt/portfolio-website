@@ -12,8 +12,12 @@ const nextConfig = {
   output: "export",
 }
 
-if (process.env.GITHUB_PAGES === 'true') {
+// Check if we're building for GitHub Pages
+const isGithubPages = process.env.GITHUB_PAGES === 'true' || process.env.NODE_ENV === 'production';
+
+if (isGithubPages) {
   nextConfig.basePath = "/portfolio-website";
+  nextConfig.assetPrefix = "/portfolio-website/";
 }
 
 export default nextConfig
