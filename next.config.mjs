@@ -10,7 +10,12 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "export",
-  basePath: "/portfolio-website"
+}
+
+if (process.env.NODE_ENV === 'development') {
+  nextConfig.basePath = "";
+} else {
+  nextConfig.basePath = "/portfolio-website";
 }
 
 export default nextConfig
