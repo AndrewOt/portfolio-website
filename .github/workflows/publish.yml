@@ -21,7 +21,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Setup Bun ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
+      - name: Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
         uses: ./.github/workflows/setup
 
       - name: Setup Pages ⚙️
@@ -30,7 +30,7 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: bun run build
+        run: npm run build
         working-directory: .
         env:
           GITHUB_PAGES: true
