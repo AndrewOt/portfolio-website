@@ -109,9 +109,6 @@ export default function Portfolio() {
                   Software Engineer with over 7 years of experience developing quality software with React and .Net. I am passionate about building performant, scalable applications that meet user needs and provide a pleasant experience.
                 </p>
                 <div className="flex gap-4">
-                  <Button asChild>
-                    <Link href="#contact">Get in touch</Link>
-                  </Button>
                   <Button variant="outline" asChild>
                     <Link href="#projects">View my work</Link>
                   </Button>
@@ -153,7 +150,7 @@ export default function Portfolio() {
             <div className="grid gap-8 md:grid-cols-2 md:gap-12">
               <div className="space-y-4">
                 <p>
-                  I'm a passionate Software Engineer and and am focused on building solutions for the customer, not matter the tech.
+                  I'm a passionate Software Engineer and and am focused on building solutions for the customer, no matter the tech.
                   I am energized by building performant, quality solutions that users enjoy.
                 </p>
                 <p>
@@ -162,7 +159,7 @@ export default function Portfolio() {
                   CosmosDb graph databases and Gremlin, the Rust and C programming languages, and AI assistant tools.
                 </p>
                 <p>
-                  I enjoy coding for fun and as my day job.When I'm not coding, you can find me spending time with friends and family,
+                  I enjoy coding for fun and as my day job. When I'm not coding, you can find me spending time with friends and family,
                   outdoors, behind a camera, reading, or playing video games.
                 </p>
               </div>
